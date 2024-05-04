@@ -1,0 +1,89 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>261caf6f-8361-4d84-b22f-332db5d61e2c</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="DevExpress.AspNetCore.Common" Version="22.2.6" />
+    <PackageReference Include="DevExpress.AspNetCore.Core" Version="22.2.6" />
+    <PackageReference Include="DevExpress.AspNetCore.Reporting" Version="22.2.6" />
+    <PackageReference Include="DevExpress.Xpo" Version="22.2.6" />
+    <PackageReference Include="DevExtreme.AspNet.Core" Version="22.2.6" />
+    <PackageReference Include="DevExtreme.AspNet.Data" Version="2.9.0" />
+    <PackageReference Include="Microsoft.ASPNet.Mvc" Version="5.2.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinesLayer\BusinesLayer.csproj" />
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\ImageFiles\" />
+    <Folder Include="wwwroot\ProductImages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Web.Mvc5.v22.2">
+      <HintPath>..\..\..\..\Desktop\DevExpress.Web.Mvc5.v22.2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Shared\_Sales.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Shared\_Sales.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\ElaAdmin-master\.github\ISSUE_TEMPLATE.md" />
+    <None Include="wwwroot\ElaAdmin-master\assets\css\style.css.map" />
+    <None Include="wwwroot\ElaAdmin-master\assets\fonts\icomoon\icomoon.svg" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\dashboard.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\init\chartjs-init.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\init\datatables-init.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\init\flot-chart-init.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\init\fullcalendar-init.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\init\gmap-init.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\init\peitychart-init.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\init\vector-init.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\init\weather-init.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\chosen\chosen.jquery.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\chosen\chosen.jquery.min.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\chosen\chosen.proto.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\chosen\chosen.proto.min.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\data-table\buttons.bootstrap.min.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\data-table\buttons.colVis.min.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\data-table\buttons.flash.min.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\data-table\buttons.html5.min.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\data-table\buttons.print.min.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\data-table\dataTables.bootstrap.min.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\data-table\dataTables.buttons.min.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\data-table\datatables.min.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\data-table\jquery-1.12.4.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\data-table\jquery.dataTables.min.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\data-table\jszip.min.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\data-table\pdfmake.min.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\data-table\vfs_fonts.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\gmap\gmapApi.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\gmap\gmaps.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\lib\gmap\gmaps.min.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\main.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\vmap.sampledata.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\js\widgets.js" />
+    <None Include="wwwroot\ElaAdmin-master\assets\scss\style.css.map" />
+    <None Include="wwwroot\ElaAdmin-master\assets\scss\style.scss" />
+    <None Include="wwwroot\ElaAdmin-master\images\.gitignore" />
+    <None Include="wwwroot\ElaAdmin-master\images\logo.psd" />
+    <None Include="wwwroot\ElaAdmin-master\README.md" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewData["Title"] = "Order";
+    Layout = "~/Views/Shared/_Sales.cshtml";
+}
+@*<style>
+    .dx-row img {
+        height: 50px;
+    }
+
+    .retryButton {
+        margin-left: 7px;
+    }
+
+    .uploadedImage {
+        height: 50px;
+        margin-left: 7px;
+        margin-bottom: 7px;
+    }
+</style>*@
+
+<div id="data-grid-demo">
+    @(
+        Html.DevExtreme().DataGrid<EntityLayer.Concrete.Order>()
+                    .ID("gridContainer")
+                    .ShowBorders(true)
+                    .ColumnAutoWidth(true)
+                    .Paging(p => p.Enabled(false))
+                    .Editing(e => e.Mode(GridEditMode.Popup).UseIcons(true)
+                    .AllowUpdating(true)
+                    .AllowAdding(true)
+                    .AllowDeleting(true)
+                    .Popup(p => p
+                    .Title("Sipariş Ekle")
+                    .Visible(true)
+                    .ShowTitle(true)
+                    .Width(700)
+                    .Height(600)
+                    )
+                    .Form(f => f.Items(items =>
+                    {
+                        items.AddGroup()
+                    .ColCount(2)
+                    .ColSpan(2)
+                    .Items(groupItems =>
+                    {
+                        groupItems.AddSimpleFor(m => m.Address);
+                        groupItems.AddSimpleFor(m => m.OrderDate);
+                        groupItems.AddSimpleFor(m => m.Status);
+                        groupItems.AddSimpleFor(m => m.TotalAmount);
+
+                    });
+                    }))
+                )
+                .Columns(columns =>
+                {
+
+                    columns.AddFor(m => m.OrderId)
+                .AllowEditing(false)
+                .Width(120)
+                .Alignment(HorizontalAlignment.Center);
+
+
+                    columns.AddFor(m => m.OrderDate)
+                .Alignment(HorizontalAlignment.Center);
+
+                    columns.AddFor(m => m.CostumerId)
+                .AllowEditing(false)
+                .Alignment(HorizontalAlignment.Center);
+
+                    columns.AddFor(m => m.TotalAmount)
+                .Alignment(HorizontalAlignment.Center);
+
+                    columns.AddFor(m => m.Status)
+                .Alignment(HorizontalAlignment.Center);
+
+                    columns.AddFor(m => m.Address)
+                .Alignment(HorizontalAlignment.Center);
+
+                columns.AddFor(m => m.OrderId)
+            .Width(200)
+            .AllowFiltering(false)
+            .Caption("Siparişler")
+            .AllowSorting(false)
+            .Alignment(HorizontalAlignment.Center)
+            .CellTemplate(@<text>
+                <div>
+                    <a class="btn btn-primary" href="~/Ecommerce/Commerce/<%- value %>" role="button">Sipariş Ekle</a>
+                </div>
+            </text>);
+
+            })
+        .DataSource(d => d.Mvc()
+        .Controller("Order")
+        .LoadAction("Get")
+        .LoadParams(new { id = ViewData["CostumerId"] })
+        .UpdateAction("Put")
+        .InsertAction("Post")
+        .DeleteAction("Delete")
+        .Key("OrderId")
+        )
+        .SearchPanel(s => s
+        .Visible(true)
+        .HighlightCaseSensitive(true))
+        )
+</div>
+

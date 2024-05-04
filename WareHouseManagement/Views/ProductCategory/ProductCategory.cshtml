@@ -1,0 +1,51 @@
+﻿
+@model int
+    @(Html.DevExtreme().DataGrid<EntityLayer.Concrete.ProductCategory>()
+            .ID("grid" + @Model)
+            .ElementAttr("class", "grid")
+            .ShowBorders(true)
+            .Height(350)
+            .Paging(p => p.Enabled(false))
+            .Editing(e => e.Mode(GridEditMode.Popup).UseIcons(true)
+            .AllowUpdating(true)
+            .AllowAdding(true)
+            .AllowDeleting(true)
+            .Popup(p => p
+            .Title("Kategori Ekle")
+            .ShowTitle(true)
+            .Width(500)
+            .Height(250)
+            )
+            .Form(f => f.Items(items =>
+            {
+                items.AddGroup()
+            .ColCount(1)
+            .ColSpan(1)
+            .Items(groupItems =>
+            {
+                groupItems.AddSimpleFor(m => m.CategoryName);
+            });
+            }))
+            )
+            .Columns(columns =>
+            {
+                columns.AddFor(m => m.CategoryId)
+                .AllowEditing(false)
+                .Alignment(HorizontalAlignment.Center);
+
+                columns.AddFor(m => m.CategoryName)
+                .Alignment(HorizontalAlignment.Center);
+
+            })
+        .DataSource(d => d.Mvc()
+        .Controller("ProductCategory")
+        .LoadAction("Get")
+        .UpdateAction("Put")
+        .InsertAction("Post")
+        .DeleteAction("Delete")
+        .Key("CategoryId")
+        )
+        .SearchPanel(s => s
+        .Visible(true)
+        .HighlightCaseSensitive(true))
+        )

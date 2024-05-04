@@ -1,0 +1,3 @@
+﻿@using WareHouseManagement
+@using WareHouseManagement.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

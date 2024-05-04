@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "Commerce";
+    Layout = "~/Views/Shared/_Sales.cshtml";
+}
+
+<div id="data-grid-demo">
+    @(Html.DevExtreme().DataGrid<EntityLayer.Concrete.OrderItem>()
+            .ID("gridContainer")
+            .ShowBorders(true)
+            .Paging(p => p.Enabled(false))
+            .Editing(e => e.Mode(GridEditMode.Popup).UseIcons(true)
+            .AllowUpdating(true)
+            .AllowAdding(true)
+            .AllowDeleting(true)
+            .Popup(p => p
+            .Title("Ürün Ekle")
+            .ShowTitle(true)
+            .Width(700)
+            .Height(600)
+            )
+            .Form(f => f.Items(items =>
+            {
+                items.AddGroup()
+            .ColCount(2)
+            .ColSpan(2)
+            .Items(groupItems =>
+            {
+                groupItems.AddSimpleFor(m => m.ProductId);
+                groupItems.AddSimpleFor(m => m.Quantity);
+            });
+
+            }))
+            )
+            .Columns(columns =>
+            {
+                    columns.AddFor(m => m.OrderItemId)
+            .AllowEditing(false)
+            .Alignment(HorizontalAlignment.Center);
+
+                    columns.AddFor(m => m.OrderId)
+            .Alignment(HorizontalAlignment.Center);
+
+
+                    columns.AddFor(m => m.Quantity)
+            .Alignment(HorizontalAlignment.Center);
+
+                    columns.AddFor(m => m.ProductId)
+            .Width(125)
+            .Lookup(lookup => lookup
+            .DataSource(d => d.Mvc().Controller("Product").LoadAction("Get").Key("ProductId"))
+            .DisplayExpr("ProductName")
+            .ValueExpr("ProductId")
+            );
+
+            })
+        .DataSource(d => d.Mvc()
+        .Controller("Ecommerce")
+        .LoadAction("Get")
+        .LoadParams(new { id = ViewData["OrderId"] })
+        .UpdateAction("Put")
+        .InsertAction("Post")
+        .DeleteAction("Delete")
+        .Key("OrderItemId")
+        )
+        .SearchPanel(s => s
+        .Visible(true)
+        .HighlightCaseSensitive(true))
+        )
+</div>

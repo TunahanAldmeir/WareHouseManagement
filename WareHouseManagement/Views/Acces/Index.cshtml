@@ -1,0 +1,44 @@
+﻿@using EntityLayer.Concrete
+@model User
+@{
+    ViewData["Title"] = "Depo Yönetimi";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+<img class="wave" src="Responsive-Login-Form-master/img/wave.png">
+<div class="container">
+    <div class="img">
+        <img src="Responsive-Login-Form-master/img/bg.svg">
+    </div>
+    <div class="login-content">
+        <form  asp-controller="Acces" asp-action="Index">
+            <img src="Responsive-Login-Form-master/img/avatar.svg">
+            <h2 class="title">Hoşgeldiniz</h2>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <h5>Email</h5>
+                    <input type="text" asp-for="Email" class="input">
+                </div>
+            </div>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h5>Şifre</h5>
+                    <input type="password" asp-for="Password" class="input">
+                </div>
+            </div>
+            <a href="#">Şifremi Unuttum?</a>
+            <input type="submit" class="btn" value="Giriş">
+            @if (ViewData["ValidateMessage"] != null)
+            {
+                <label style="color:black">@ViewData["ValidateMessage"]</label>
+            }
+        </form>
+    </div>
+</div>
+
+

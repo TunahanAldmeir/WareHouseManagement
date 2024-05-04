@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "ProdcutSpecications";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tables">
+    <div class="column">
+        @await Html.PartialAsync("~/Views/ProductBrand/ProdcutBrand.cshtml", 2)
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="column">
+        @await Html.PartialAsync("~/Views/ProductCategory/ProductCategory.cshtml", 1)
+    </div>
+</div>
+

@@ -1,0 +1,58 @@
+﻿@using DevExtreme.AspNet.Mvc;
+@{
+    ViewData["Title"] = "Yetkilendirme";
+}
+<div id="data-grid-demo">
+    @(Html.DevExtreme().DataGrid<EntityLayer.Concrete.UserType>()
+            .ID("gridContainer")
+            .ShowBorders(true)
+            .Paging(p => p.Enabled(false))
+            .Editing(e => e.Mode(GridEditMode.Popup).UseIcons(true)
+            .AllowUpdating(true)
+            .AllowAdding(true)
+            .AllowDeleting(true)
+            .Popup(p => p
+            .Title("Kullanıcı Yetki Ekle")
+            .ShowTitle(true)
+            .Width(400)
+            .Height(250)
+            )
+            .Form(f => f.Items(items =>
+            {
+                items.AddGroup()
+            .ColCount(2)
+            .ColSpan(2)
+            .Items(groupItems =>
+            {
+                groupItems.AddSimpleFor(m => m.TypeName);
+                groupItems.AddSimpleFor(m => m.Id).HelpText("Kullanıcı Id giriniz "+(ViewData["id"].ToString()));
+            });
+
+            }))
+            )
+            .Columns(columns =>
+            {
+                columns.AddFor(m => m.UserTypeId)
+            .AllowEditing(false)
+            .Alignment(HorizontalAlignment.Center)
+            .Width(70);
+
+                columns.AddFor(m => m.TypeName)
+            .Alignment(HorizontalAlignment.Center);
+
+
+                columns.AddFor(m => m.Id)
+            .Alignment(HorizontalAlignment.Center);
+
+            })
+        .DataSource(d => d.Mvc()
+        .Controller("Home")
+        .LoadAction("GetType")
+        .LoadParams(new { id = ViewData["id"] })
+        .UpdateAction("PutType")
+        .InsertAction("PostType")
+        .DeleteAction("DeleteType")
+        .Key("UserTypeId")
+        )
+        )
+</div>

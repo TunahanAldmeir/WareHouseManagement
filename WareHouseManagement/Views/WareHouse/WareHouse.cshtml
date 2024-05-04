@@ -1,0 +1,75 @@
+﻿@using DevExtreme.AspNet.Mvc;
+@{
+    ViewData["Title"] = "Deplolar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="data-grid-demo">
+@(Html.DevExtreme().DataGrid<EntityLayer.Concrete.WareHouse>()
+        .ID("gridContainer")
+        .ShowBorders(true)
+        .Paging(p => p.Enabled(false))
+        .Editing(e => e.Mode(GridEditMode.Popup).UseIcons(true)
+        .AllowUpdating(true)
+        .AllowAdding(true)
+        .AllowDeleting(true)
+        .Popup(p => p
+        .Title("Depo Bilgi")
+        .ShowTitle(true)
+        .Width(700)
+        .Height(250)
+        )
+        .Form(f => f.Items(items =>
+        {
+            items.AddGroup()
+            .ColCount(2)
+            .ColSpan(2)
+            .Items(groupItems =>
+            {
+                groupItems.AddSimpleFor(m => m.Name);
+                groupItems.AddSimpleFor(m => m.CurrentCapacity);
+            });
+        }))
+        )
+        .Columns(columns =>
+        {
+            columns.AddFor(m => m.Id)
+            .AllowEditing(false)
+            .Alignment(HorizontalAlignment.Center)
+            .Width(70);
+
+            columns.AddFor(m => m.Name)
+            .Alignment(HorizontalAlignment.Center);
+
+
+            columns.AddFor(m => m.CurrentCapacity)
+            .Alignment(HorizontalAlignment.Center);
+
+            columns.AddFor(m => m.UsedCapacity)
+            .Alignment(HorizontalAlignment.Center);
+            columns.AddFor(m => m.Id)
+            .Width(200)
+            .AllowFiltering(false)
+            .Caption("Depo İçerik")
+            .AllowSorting(false)
+            .Alignment(HorizontalAlignment.Center)
+            .CellTemplate(@<text>
+                <div>
+                    <a class="btn btn-primary" href="~/Product/Products/<%- value %>" role="button">Ürünleri Gör</a>
+                </div>
+            </text>);
+        })
+        .DataSource(d => d.Mvc()
+        .Controller("WareHouse")
+        .LoadAction("Get")
+        .UpdateAction("Put")
+        .InsertAction("Post")
+        .DeleteAction("Delete")
+        .Key("Id")
+        )
+        .SearchPanel(s => s
+        .Visible(true)
+        .HighlightCaseSensitive(true))
+        )
+</div>
+
+

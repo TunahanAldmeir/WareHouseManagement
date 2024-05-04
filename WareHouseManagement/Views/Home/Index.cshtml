@@ -1,0 +1,119 @@
+﻿@using DevExtreme.AspNet.Mvc;
+@using DevExpress;
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    .dx-row img {
+        height: 50px;
+    }
+    .retryButton {
+        margin-left: 7px;
+    }
+    .uploadedImage {
+        height: 50px;
+        margin-left: 7px;
+        margin-bottom: 7px;
+    }
+</style>
+<div id="data-grid-demo">
+    @(Html.DevExtreme().DataGrid<EntityLayer.Concrete.User>()
+        .ID("gridContainer")
+        .ShowBorders(true)
+        .Paging(p => p.Enabled(false))
+        .Editing(e => e.Mode(GridEditMode.Popup).UseIcons(true)
+        .AllowUpdating(true)
+        .AllowAdding(true)
+        .AllowDeleting(true)
+        .Popup(p => p
+        .Title("Kullanıcı Bilgi")
+        .ShowTitle(true)
+        .Width(700)
+        .Height(700)
+        )
+        .Form(f => f.Items(items =>
+        {
+            items.AddGroup()
+            .ColCount(2)
+            .ColSpan(2)
+            .Items(groupItems =>
+            {
+                groupItems.AddSimpleFor(m => m.Name);
+                groupItems.AddSimpleFor(m => m.LastName);
+                groupItems.AddSimpleFor(m => m.Email);
+                groupItems.AddSimpleFor(m => m.Password);
+                groupItems.AddSimpleFor(m => m.Status);
+                groupItems.AddSimpleFor(m=>m.Status);
+            });
+            items.AddGroup()
+            .Caption("Photo")
+            .ColCount(2)
+            .ColSpan(2)
+            .Items(groupItems =>
+            {
+                groupItems.AddSimple().DataField("Picture").ColSpan(2);
+            });
+        }))
+        )
+        .Columns(columns =>
+        {
+            columns.Add().DataField("Picture")
+            .Width(120)
+            .AllowFiltering(false)
+            .AllowSorting(false)
+            .CellTemplate(
+                @<text>
+                    <img src="<%- value %>" alt="Photo" />
+                </text>)
+                .EditCellTemplate(
+                @<text>
+                    @(await Html.PartialAsync("_EditCellTemplate"))
+                </text>);
+
+            columns.AddFor(m => m.Id)
+            .AllowEditing(false)
+            .Alignment(HorizontalAlignment.Center)
+            .Width(70);
+
+            columns.AddFor(m => m.Name)
+            .Alignment(HorizontalAlignment.Center);
+            
+
+            columns.AddFor(m => m.LastName)
+            .Alignment(HorizontalAlignment.Center);
+
+            columns.AddFor(m => m.Email)
+            .Width(150)
+            .Alignment(HorizontalAlignment.Center);
+
+            columns.AddFor(m => m.Password)
+            .Alignment(HorizontalAlignment.Center)
+            .Width(170);
+            columns.AddFor(m => m.Status)
+            .Alignment(HorizontalAlignment.Center);
+            columns.AddFor(m => m.Id)
+            .Width(200)
+            .AllowFiltering(false)
+            .Caption("Yetkilerim")
+            .AllowSorting(false)
+            .Alignment(HorizontalAlignment.Center)
+            .CellTemplate(@<text>
+                <div>
+                    <a class="btn btn-primary" href="Home/Privacy/<%- value %>" role="button">Yetki Ver</a>
+                </div>
+            </text>);
+
+        })
+        .DataSource(d => d.Mvc()
+        .Controller("Home")
+        .LoadAction("Get")
+        .UpdateAction("Put")
+        .InsertAction("Post")
+        .DeleteAction("Delete")
+        .Key("Id")
+        )
+        .SearchPanel(s => s
+        .Visible(true)
+        .HighlightCaseSensitive(true))
+        )
+</div>
