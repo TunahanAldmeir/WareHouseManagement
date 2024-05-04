@@ -1,0 +1,17 @@
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\bin\Debug\net6.0\BusinesLayer.deps.json
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\bin\Debug\net6.0\BusinesLayer.dll
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\bin\Debug\net6.0\BusinesLayer.pdb
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\bin\Debug\net6.0\DataAccessLayer.dll
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\bin\Debug\net6.0\EntityLayer.dll
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\bin\Debug\net6.0\DataAccessLayer.pdb
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\bin\Debug\net6.0\EntityLayer.pdb
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\obj\Debug\net6.0\BusinesLayer.csproj.AssemblyReference.cache
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\obj\Debug\net6.0\BusinesLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\obj\Debug\net6.0\BusinesLayer.AssemblyInfoInputs.cache
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\obj\Debug\net6.0\BusinesLayer.AssemblyInfo.cs
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\obj\Debug\net6.0\BusinesLayer.csproj.CoreCompileInputs.cache
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\obj\Debug\net6.0\BusinesLayer.csproj.CopyComplete
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\obj\Debug\net6.0\BusinesLayer.dll
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\obj\Debug\net6.0\refint\BusinesLayer.dll
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\obj\Debug\net6.0\BusinesLayer.pdb
+C:\Users\Tunahan\source\repos\WareHouseManagement\BusinesLayer\obj\Debug\net6.0\ref\BusinesLayer.dll
